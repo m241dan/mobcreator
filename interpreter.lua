@@ -1,9 +1,13 @@
+require( "states" )
+
+local state = STATE_MENU
 local prompt = {
                   [1] = "Commands: Open or New: "
                }
 
+
 function interpret()
-   local input, state = nil, 1
+   local input = nil
 
    print( "Interpreter thread booting up." )
 
