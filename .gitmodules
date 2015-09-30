@@ -1,0 +1,3 @@
+[submodule "luasql"]
+	path = luasql
+	url = https://github.com/keplerproject/luasql.git
