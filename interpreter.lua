@@ -1,7 +1,10 @@
-function interpret( input )
-   while( true )
-      print( "The input is" .. input )
-      coroutine.yield()
+function interpret()
+   local input
+
+   print( "Interpreter thread booting up." )
+   while( true ) do
+      input = coroutine.yield()
+      print( "The input is a " .. input )
    end
 end
 
