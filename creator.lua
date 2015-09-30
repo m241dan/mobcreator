@@ -21,8 +21,8 @@ function main()
       end
    end
 
+   db.shutdown()
 end
 
 main()
-db.shutdown()
 
