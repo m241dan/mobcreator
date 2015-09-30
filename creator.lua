@@ -1,18 +1,19 @@
-require( "config" );
+require( "config" )
+require( "db" )
 
-local driver = require( "luasql.mysql" )
-local env = driver.mysql();
+shutdown = false
 
-dspdb = assert( env:connect( DB_NAME, DB_LOGIN, DB_PASS, DB_ADDR ) )
-run = true;
-
-while( true ) do
-   local input = io.read("*line")
+function main()
+   -- initialize the db
+   db.start()
+   sql_handle = db.newSql( sqlcfg.DB_NAME, sqlcfg.DB_LOGIN, sqlcfg.DB_PASS, sqlcfg.DB_ADDR )
+   interp = require( "interpreter" );
    
+   while( shutdown ~= true ) do
+   end
+
 end
 
+main()
+db.shutdown()
 
-
-
-dspdb:close()
-env:close()

@@ -1,16 +1,20 @@
-local sqldriver = require( "luamysql.mysql" )
+local sqldriver = require( "luasql.mysql" )
 
-local db = {}
+db = {}
 
 function db.start()
    sqlenv = assert( sqldriver.mysql() )
 end
 
 function db.shutdown()
-   sqlenv:close()
+   if( sqlenv ) then
+      sqlenv:close()
+   end
+   print( "DB shutdown" );
 end
 
-function db.newSql( name, user, passwd, addr, port = 3306 )
+function db.newSql( name, user, passwd, addr, port )
+   port = port or 3306
    if( sqlenv == nil ) then
       error( "db not started up yet" )
    end
